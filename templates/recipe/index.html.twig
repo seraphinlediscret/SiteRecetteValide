@@ -1,7 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello RecipeController!{% endblock %}
+{% block title %}Nos Recettes{% endblock %}
 
 {% block body %}
-<h1>Nos Recettes Sucrées - Salées</h1>
+
+{% for recette in recettes %}
+ <ul>
+    <li>{{recette.titre}}</li>
+    <li><img src="{{recette.image}}" alt=""></li>
+    <li>{{recette.TempsPreparation}}</li>
+    <li>{{recette.TempsCuisson}}</li>
+    <li>{{recette.Prix}}</li>
+    {% for etape in recette.Etapes %}
+         <li>etape {{etape.ordre}} : {{etape.description}}</li>
+    {% endfor %}
+    {% for ustensile in recette.Ustensiles %}
+         <li>Les Ustensiles : {{ustensile.nom}}</li>
+    {% endfor %} 
+ </ul>
+{% endfor %}
 {% endblock %}
