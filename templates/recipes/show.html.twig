@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recipes{% endblock %}
+
+{% block body %}
+    <h1>Recettes sucrées - salées</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ recipe.title }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ recipe.picture }}</td>
+            </tr>
+            <tr>
+                <th>TimeCook</th>
+                <td>{{ recipe.timeCook }} minutes</td>
+            </tr>
+            <tr>
+                <th>PreparationTime</th>
+                <td>{{ recipe.preparationTime }} minutes</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ recipe.price }} euros</td>
+            </tr>
+            <tr>
+                <th>Steps</th>
+                <td>
+                    {% for step in recipe.steps %}
+                    <ul>
+                 <li> étape {{ step.spot }} : {{ step.description }}</li>
+                    </ul>
+                    {% endfor %}
+                </td>
+            </tr>
+             <tr>
+                <th>Matériel</th>
+                {% for cookingTool in recipe.cookingTools %}
+                <td>{{ cookingTool.name }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                {% for tag in recipe.tags %}
+                <td>{{ tag.name }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

@@ -2,30 +2,31 @@
 
 namespace App\Form;
 
-use App\Entity\Recettes;
+use App\Entity\Recipes;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RecettesType extends AbstractType
+class RecipesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('image')
-            ->add('TempsPreparation')
-            ->add('TempsCuisson')
-            ->add('Prix')
-            ->add('ustensiles')
-            ->add('categories')
+            ->add('title')
+            ->add('picture')
+            ->add('timeCook')
+            ->add('preparationTime')
+            ->add('price')
+            ->add('cookingTools')
+            ->add('reviews')
+            ->add('tags')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Recettes::class,
+            'data_class' => Recipes::class,
         ]);
     }
 }

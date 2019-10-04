@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Unite;
+use App\Entity\Unity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
- * @method Unite|null find($id, $lockMode = null, $lockVersion = null)
- * @method Unite|null findOneBy(array $criteria, array $orderBy = null)
- * @method Unite[]    findAll()
- * @method Unite[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Unity|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Unity|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Unity[]    findAll()
+ * @method Unity[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class UniteRepository extends ServiceEntityRepository
+class UnityRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Unite::class);
+        parent::__construct($registry, Unity::class);
     }
 
     // /**
-    //  * @return Unite[] Returns an array of Unite objects
+    //  * @return Unity[] Returns an array of Unity objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class UniteRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Unite
+    public function findOneBySomeField($value): ?Unity
     {
         return $this->createQueryBuilder('u')
             ->andWhere('u.exampleField = :val')

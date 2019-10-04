@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\EtapesRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\StepsRepository")
  */
-class Etapes
+class Steps
 {
     /**
      * @ORM\Id()
@@ -24,12 +24,12 @@ class Etapes
     /**
      * @ORM\Column(type="integer")
      */
-    private $ordre;
+    private $spot;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Recettes", inversedBy="etapes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Recipes", inversedBy="steps")
      */
-    private $recette;
+    private $recipe;
 
     public function getId(): ?int
     {
@@ -48,26 +48,26 @@ class Etapes
         return $this;
     }
 
-    public function getOrdre(): ?int
+    public function getSpot(): ?int
     {
-        return $this->ordre;
+        return $this->spot;
     }
 
-    public function setOrdre(int $ordre): self
+    public function setSpot(int $spot): self
     {
-        $this->ordre = $ordre;
+        $this->spot = $spot;
 
         return $this;
     }
 
-    public function getRecette(): ?Recettes
+    public function getRecipe(): ?Recipes
     {
-        return $this->recette;
+        return $this->recipe;
     }
 
-    public function setRecette(?Recettes $recette): self
+    public function setRecipe(?Recipes $recipe): self
     {
-        $this->recette = $recette;
+        $this->recipe = $recipe;
 
         return $this;
     }

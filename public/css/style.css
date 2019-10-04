@@ -1,0 +1,11 @@
+.nav-link:hover {
+    color: goldenrod!important;
+}
+
+h1 {
+    color: rgb(240, 45, 214);
+}
+
+.theRecipes {
+    display: flex;
+}
