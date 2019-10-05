@@ -1,11 +1,57 @@
 .nav-link:hover {
-    color: goldenrod!important;
+    color: goldenrod !important;
 }
 
 h1 {
-    color: rgb(240, 45, 214);
+    color: rgb(173, 11, 11);
 }
 
 .theRecipes {
     display: flex;
+}
+
+body {
+    background-image: url("../img/fond.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.recipe {
+    color: whitesmoke;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around; 
+    margin-top:30px;
+    background-color: rgba(42, 42, 241,0.5);
+    padding: 10px;
+}
+
+a {
+    margin-right: 20px;
+}
+.ingredients{
+background-color: rgba(44, 71, 71,0.5);
+padding: 10px;
+border-radius:10px;
+color:white;
+}
+.cooktool{
+    background-color: rgba(138, 38, 13,0.5);
+    padding: 10px;
+border-radius:10px;
+color:white;
+}
+.steps{
+    background-color: rgba(5, 110, 5,0.5);
+    padding: 10px;
+    border-radius:10px;
+    color:white;
+}
+li{
+    list-style-type: none; 
+}
+.steptitle{
+font-size: 30px;
+color:yellowgreen;
+font-weight: bold;
 }

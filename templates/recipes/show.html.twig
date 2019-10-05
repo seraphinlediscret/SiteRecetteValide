@@ -7,11 +7,17 @@
     <main style="display:flex; flex-direction:column;">
         <h1 style="text-align:center;">Recettes sucrées - salées</h1>
         <!--////////////////////////////////////////title, tag and picture///////////////////////////////////////-->
-        <h3 style="color: rgb(121, 38, 5);">{{ recipe.title }} <span style="color:green;">{% for tag in recipe.tags %}{{ tag.name }}{% endfor %}</span></h3>
+        <h3 style="color: rgb(121, 38, 5);">{{ recipe.title }}
+            <span style="color:green;">
+                {% for tag in recipe.tags %}
+                    {{ tag.name }}
+                {% endfor %}
+            </span>
+        </h3>
         <img
         src="{{ recipe.picture }}" alt="" class="img-fluid col- col-md-8 and height: auto;">
         <!--/////////////////////////////////////////cook and preparation///////////////////////////////////-->
-        <div class="recipe" style="display:flex;flex-direction:row;justify-content:space-around; margin-top:30px;">
+        <div class="recipe">
             <span>{{ recipe.timeCook }}
                 minutes de cuisson</span>
             <span>{{ recipe.preparationTime }}
@@ -25,9 +31,9 @@
             {% for step in recipe.steps %}
                 <ul>
                     <li>
-                        étape
-                        {{ step.spot }}
-                        :
+                        <span class="steptitle">étape
+                            {{ step.spot }}
+                            :</span>
                         {{ step.description }}</li>
                 </ul>
             {% endfor %}
@@ -40,7 +46,7 @@
                 </ul>
             {% endfor %}
         </div>
-       
+
         <!--///////////////////////////////////////////ingredients////////////////////////////////////////////////-->
         <div class="ingredients" style="position: absolute; right: 5vw; top:300px;">
 

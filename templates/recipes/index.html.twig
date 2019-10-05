@@ -1,16 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes index{% endblock %}
+{% block title %}Recipes index
+{% endblock %}
 
 {% block body %}
     <h1>Nos Recettes</h1>
     <div class="theRecipes"></div>
-        {% for recipe in recipes %}
-                <h3>{{ recipe.title }}</h3>
-           <a href="{{ path('recipes_show', {'id': recipe.id}) }}"><img src="{{ recipe.picture }}" alt="recipe"></a>     
-        {% else %}
-            <tr>
-                <td colspan="7">no records found
-            </tr>
-        {% endfor %}
+    {% for recipe in recipes %}
+        <h3 style="color: rgb(121, 38, 5);">{{ recipe.title }}</h3>
+        <a href="{{ path('recipes_show', {'id': recipe.id}) }}"><img src="{{ recipe.picture }}" alt="recipe"></a>
+    {% else %}
+        <tr>
+            <td colspan="7">no records found</td>
+        </tr>
+    {% endfor %}
 {% endblock %}
+
