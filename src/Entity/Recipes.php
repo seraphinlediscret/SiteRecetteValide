@@ -63,12 +63,18 @@ class Recipes
      */
     private $tags;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ingredients", inversedBy="recipes")
+     */
+    private $ingredient;
+
     public function __construct()
     {
         $this->steps = new ArrayCollection();
         $this->cookingTools = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->ingredient = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -250,6 +256,34 @@ class Recipes
 
         return $this;
     }
+
+   
+
+    /**
+     * @return Collection|Ingredients[]
+     */
+    public function getIngredient(): Collection
+    {
+        return $this->ingredient;
+    }
+
+    public function addIngredient(Ingredients $ingredient): self
+    {
+        if (!$this->ingredient->contains($ingredient)) {
+            $this->ingredient[] = $ingredient;
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredients $ingredient): self
+    {
+        if ($this->ingredient->contains($ingredient)) {
+            $this->ingredient->removeElement($ingredient);
+        }
+
+        return $this;
+    } 
     public function __toString(){
         return $this->title;
     }

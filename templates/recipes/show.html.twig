@@ -1,54 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipes{% endblock %}
+{% block title %}Recipes
+{% endblock %}
 
 {% block body %}
-    <h1>Recettes sucrées - salées</h1>
+    <main style="display:flex; flex-direction:column;">
+        <h1 style="text-align:center;">Recettes sucrées - salées</h1>
+        <!--////////////////////////////////////////title, tag and picture///////////////////////////////////////-->
+        <h3 style="color: rgb(121, 38, 5);">{{ recipe.title }} <span style="color:green;">{% for tag in recipe.tags %}{{ tag.name }}{% endfor %}</span></h3>
+        <img
+        src="{{ recipe.picture }}" alt="" class="img-fluid col- col-md-8 and height: auto;">
+        <!--/////////////////////////////////////////cook and preparation///////////////////////////////////-->
+        <div class="recipe" style="display:flex;flex-direction:row;justify-content:space-around; margin-top:30px;">
+            <span>{{ recipe.timeCook }}
+                minutes de cuisson</span>
+            <span>{{ recipe.preparationTime }}
+                minutes de prépation</span>
+            <span>environ
+                {{ recipe.price }}
+                euros</span>
+        </div>
+        <!--///////////////////////////////////////////////steps////////////////////////////////////////////////-->
+        <div class="steps" style="margin-top:30px;">
+            {% for step in recipe.steps %}
+                <ul>
+                    <li>
+                        étape
+                        {{ step.spot }}
+                        :
+                        {{ step.description }}</li>
+                </ul>
+            {% endfor %}
+        </div>
+        <!--///////////////////////////////////////////cooking Tools/////////////////////////////////////////////-->
+        <div class="cooktool" style="position:absolute; right:10vw; top:700px;">
+            {% for cookingTool in recipe.cookingTools %}
+                <ul>
+                    <li>{{ cookingTool.name }}</li>
+                </ul>
+            {% endfor %}
+        </div>
+       
+        <!--///////////////////////////////////////////ingredients////////////////////////////////////////////////-->
+        <div class="ingredients" style="position: absolute; right: 5vw; top:300px;">
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Title</th>
-                <td>{{ recipe.title }}</td>
-            </tr>
-            <tr>
-                <th>Picture</th>
-                <td>{{ recipe.picture }}</td>
-            </tr>
-            <tr>
-                <th>TimeCook</th>
-                <td>{{ recipe.timeCook }} minutes</td>
-            </tr>
-            <tr>
-                <th>PreparationTime</th>
-                <td>{{ recipe.preparationTime }} minutes</td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>{{ recipe.price }} euros</td>
-            </tr>
-            <tr>
-                <th>Steps</th>
-                <td>
-                    {% for step in recipe.steps %}
-                    <ul>
-                 <li> étape {{ step.spot }} : {{ step.description }}</li>
-                    </ul>
-                    {% endfor %}
-                </td>
-            </tr>
-             <tr>
-                <th>Matériel</th>
-                {% for cookingTool in recipe.cookingTools %}
-                <td>{{ cookingTool.name }}</td>
-                {% endfor %}
-            </tr>
-            <tr>
-                <th>Categorie</th>
-                {% for tag in recipe.tags %}
-                <td>{{ tag.name }}</td>
-                {% endfor %}
-            </tr>
-        </tbody>
-    </table>
+            {% for ingredient in recipe.ingredient %}
+                <ul>
+                    <li>{{ingredient.quantity}}
+                        {{ingredient.unity}}
+                        {{ingredient.name}}
+                    </li>
+                </ul>
+            {% endfor %}
+        </div>
+    </main>
 {% endblock %}
+
