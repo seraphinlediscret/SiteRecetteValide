@@ -5,17 +5,43 @@
 
 {% block body %}
     <main style="display:flex; flex-direction:column;">
-        <h1 style="text-align:center;">Recettes sucrées - salées</h1>
+        <h1>Recettes sucrées - salées</h1>
         <!--////////////////////////////////////////title, tag and picture///////////////////////////////////////-->
-        <h3 style="color: rgb(121, 38, 5);">{{ recipe.title }}
-            <span style="color:green;">
+        <h3>{{ recipe.title }}
+            <span class="tagy">
                 {% for tag in recipe.tags %}
                     {{ tag.name }}
                 {% endfor %}
             </span>
         </h3>
-        <img
-        src="{{ recipe.picture }}" alt="" class="img-fluid col- col-md-8 and height: auto;">
+        <div class="contain">
+            <img
+            src="{{ recipe.picture }}" alt="" class="w-50">
+            <!--///////////////////////////////////////////cooking Tools/////////////////////////////////////////////-->
+            <div id="ingcook">
+                <aside class="cooktool">
+                    {% for cookingTool in recipe.cookingTools %}
+                        <ul>
+                            <li>{{ cookingTool.name }}</li>
+                        </ul>
+                    {% endfor %}
+                </aside>
+            <!--///////////////////////////////////////////cooking Tools////////////////////////////////////////////////-->
+            <!--///////////////////////////////////////////ingredients////////////////////////////////////////////////-->
+                <aside class="ingredients">
+
+                    {% for ingredient in recipe.ingredient %}
+                        <ul>
+                            <li>{{ingredient.quantity}}
+                                {{ingredient.unity}}
+                                {{ingredient.name}}
+                            </li>
+                        </ul>
+                    {% endfor %}
+                </aside>
+            <!--///////////////////////////////////////////ingredients////////////////////////////////////////////////--> 
+            </div>
+        </div>
         <!--/////////////////////////////////////////cook and preparation///////////////////////////////////-->
         <div class="recipe">
             <span>{{ recipe.timeCook }}
@@ -26,8 +52,9 @@
                 {{ recipe.price }}
                 euros</span>
         </div>
+
         <!--///////////////////////////////////////////////steps////////////////////////////////////////////////-->
-        <div class="steps" style="margin-top:30px;">
+        <div class="steps">
             {% for step in recipe.steps %}
                 <ul>
                     <li>
@@ -38,27 +65,7 @@
                 </ul>
             {% endfor %}
         </div>
-        <!--///////////////////////////////////////////cooking Tools/////////////////////////////////////////////-->
-        <div class="cooktool" style="position:absolute; right:10vw; top:700px;">
-            {% for cookingTool in recipe.cookingTools %}
-                <ul>
-                    <li>{{ cookingTool.name }}</li>
-                </ul>
-            {% endfor %}
-        </div>
 
-        <!--///////////////////////////////////////////ingredients////////////////////////////////////////////////-->
-        <div class="ingredients" style="position: absolute; right: 5vw; top:300px;">
-
-            {% for ingredient in recipe.ingredient %}
-                <ul>
-                    <li>{{ingredient.quantity}}
-                        {{ingredient.unity}}
-                        {{ingredient.name}}
-                    </li>
-                </ul>
-            {% endfor %}
-        </div>
     </main>
 {% endblock %}
 

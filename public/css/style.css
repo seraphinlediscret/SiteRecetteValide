@@ -4,10 +4,15 @@
 
 h1 {
     color: rgb(173, 11, 11);
+    text-align:center;
 }
 
 .theRecipes {
     display: flex;
+    flex-direction: column;
+    width: 50vw;
+    text-align: center;
+    margin-left:25vw;
 }
 
 body {
@@ -31,21 +36,39 @@ a {
 }
 .ingredients{
 background-color: rgba(44, 71, 71,0.5);
-padding: 10px;
+text-align: center;
 border-radius:10px;
 color:white;
+padding-right:20px;
+
+}
+.contain{
+    display: flex;
+    flex-direction: row;
+    margin-left:20px;
+}
+#ingcook{
+    display: flex;
+    margin-left: 10px;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    margin-left:100px;
+    
 }
 .cooktool{
-    background-color: rgba(138, 38, 13,0.5);
-    padding: 10px;
+background-color: rgba(138, 38, 13,0.5);
 border-radius:10px;
 color:white;
+text-align: center;
+padding-right:20px;
+margin-top: 20px;
 }
 .steps{
     background-color: rgba(5, 110, 5,0.5);
     padding: 10px;
     border-radius:10px;
     color:white;
+    margin-top:30px;
 }
 li{
     list-style-type: none; 
@@ -54,4 +77,12 @@ li{
 font-size: 30px;
 color:yellowgreen;
 font-weight: bold;
+}
+h3{
+    color: rgb(121, 38, 5);
+    margin-top:30px;
+    margin-left:20px;
+}
+.tagy{
+    color:green;
 }

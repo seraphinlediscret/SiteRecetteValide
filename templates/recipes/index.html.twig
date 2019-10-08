@@ -5,11 +5,12 @@
 
 {% block body %}
     <h1>Nos Recettes</h1>
-    <div class="theRecipes"></div>
+    <div class="theRecipes">
     {% for recipe in recipes %}
         <h3 style="color: rgb(121, 38, 5);">{{ recipe.title }}</h3>
-        <a href="{{ path('recipes_show', {'id': recipe.id}) }}"><img src="{{ recipe.picture }}" alt="recipe"></a>
+        <a href="{{ path('recipes_show', {'id': recipe.id}) }}"><img src="{{ recipe.picture }}" class="w-100" alt="recipe"></a>
     {% else %}
+    </div>
         <tr>
             <td colspan="7">no records found</td>
         </tr>

@@ -20,6 +20,7 @@ class RecipesType extends AbstractType
             ->add('cookingTools')
             ->add('reviews')
             ->add('tags')
+            ->add('ingredient')
         ;
     }
 
